@@ -1,0 +1,61 @@
+/* .gradient-bg {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom right, #38b2ac, #4299e1, #805ad5);
+    /* 
+    from-teal-400 is #38b2ac
+    via-blue-500 is #4299e1
+    to-purple-600 is #805ad5
+    */
+/* } */ 
+.gradient-bg {
+    background: linear-gradient(300deg, #141E30,#243B55);
+    /* background: linear-gradient(300deg, #050f23,#03152b); */
+    background-size: 180% 180%;
+    animation: gradient-animation 18s ease infinite;
+  }
+  
+  @keyframes gradient-animation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  ul li a:hover {
+    font-size: 20px; /* Magnify the text */
+}
+
+nav ul li a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #ffffff;
+  transition: width 0.3s ease, height 0.3s ease;
+}
+
+nav ul li a:hover::before,
+        nav ul li a.active::before {
+            width: 100%;
+            height: 3px;
+}
+
+
+.btn {
+  color: antiquewhite;
+  background-color: rgb(9, 26, 59);
+  height: 70px;
+  width: 100px;
+  border-radius: 50%;
+}
+
