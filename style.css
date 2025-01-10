@@ -58,4 +58,10 @@ nav ul li a:hover::before,
   width: 100px;
   border-radius: 50%;
 }
-
+.projectimg{
+  width: 350px;
+  height: 300px;
+}
+.desc{
+  font-size: large;
+}
