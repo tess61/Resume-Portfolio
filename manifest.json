@@ -1,27 +1,27 @@
 {
-  "name": "Tesfa Melkamu - Fullstack Developer Portfolio",
-  "short_name": "Tesfa Portfolio",
-  "description": "Professional portfolio showcasing fullstack development skills and experience",
+  "name": "Tesfa Walle - Fullstack Developer Portfolio",
+  "short_name": "Tesfa Walle",
+  "description": "Tesfa Walle - Professional fullstack developer specializing in MERN stack, React, Node.js, AI/ML, and modern web technologies",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
+  "background_color": "#111827",
   "theme_color": "#2563eb",
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "assets/images/photo_2024-10-10_16-19-40.jpg",
+      "src": "/favicon.svg",
       "sizes": "192x192",
-      "type": "image/jpeg",
+      "type": "image/svg+xml",
       "purpose": "any maskable"
     },
     {
-      "src": "assets/images/photo_2024-10-10_16-19-40.jpg",
+      "src": "/favicon.svg",
       "sizes": "512x512",
-      "type": "image/jpeg",
+      "type": "image/svg+xml",
       "purpose": "any maskable"
     }
   ],
-  "categories": ["portfolio", "developer", "technology"],
+  "categories": ["portfolio", "developer", "technology", "fullstack", "ai"],
   "lang": "en",
   "dir": "ltr"
 }
