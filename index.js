@@ -165,22 +165,24 @@ function initThemeToggle() {
     const currentTheme = localStorage.getItem('theme') || 'dark';
     document.documentElement.setAttribute('data-theme', currentTheme);
 
-    // Get the theme toggle button from HTML
+    // Get both theme toggle buttons from HTML
     const themeToggle = document.getElementById('themeToggle');
     const themeIcon = document.getElementById('themeIcon');
+    const themeToggleDesktop = document.getElementById('themeToggleDesktop');
+    const themeIconDesktop = document.getElementById('themeIconDesktop');
 
-    console.log('Theme toggle button:', themeToggle);
-    console.log('Theme icon:', themeIcon);
+    console.log('Theme toggle buttons:', themeToggle, themeToggleDesktop);
 
     if (!themeToggle || !themeIcon) {
-        console.error('Theme toggle elements not found!');
+        console.error('Mobile theme toggle elements not found!');
         return;
     }
 
     // Set initial icon based on current theme
     updateThemeIcon(currentTheme);
 
-    themeToggle.addEventListener('click', function() {
+    // Function to handle theme toggle
+    function handleThemeToggle() {
         const currentTheme = document.documentElement.getAttribute('data-theme');
         const newTheme = currentTheme === 'light' ? 'dark' : 'light';
         
@@ -197,21 +199,44 @@ function initThemeToggle() {
             document.body.style.transition = '';
         }, 300);
 
-        // Add click animation
-        themeToggle.style.transform = 'scale(0.95)';
-        setTimeout(() => {
-            themeToggle.style.transform = '';
-        }, 150);
-    });
+        // Add click animation to both buttons
+        if (themeToggle) {
+            themeToggle.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                themeToggle.style.transform = '';
+            }, 150);
+        }
+        
+        if (themeToggleDesktop) {
+            themeToggleDesktop.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                themeToggleDesktop.style.transform = '';
+            }, 150);
+        }
+    }
+
+    // Add event listeners to both buttons
+    themeToggle.addEventListener('click', handleThemeToggle);
+    if (themeToggleDesktop) {
+        themeToggleDesktop.addEventListener('click', handleThemeToggle);
+    }
 
     // Function to update theme icon
     function updateThemeIcon(theme) {
         if (theme === 'dark') {
             themeIcon.className = 'fas fa-sun';
             themeToggle.title = 'Switch to Light Mode';
-            } else {
+            if (themeIconDesktop) {
+                themeIconDesktop.className = 'fas fa-sun';
+                themeToggleDesktop.title = 'Switch to Light Mode';
+            }
+        } else {
             themeIcon.className = 'fas fa-moon';
             themeToggle.title = 'Switch to Dark Mode';
+            if (themeIconDesktop) {
+                themeIconDesktop.className = 'fas fa-moon';
+                themeToggleDesktop.title = 'Switch to Dark Mode';
+            }
         }
     }
 
