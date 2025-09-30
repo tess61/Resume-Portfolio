@@ -1,0 +1,27 @@
+{
+  "name": "Tesfa Melkamu - Fullstack Developer Portfolio",
+  "short_name": "Tesfa Portfolio",
+  "description": "Professional portfolio showcasing fullstack development skills and experience",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "assets/images/photo_2024-10-10_16-19-40.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/images/photo_2024-10-10_16-19-40.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["portfolio", "developer", "technology"],
+  "lang": "en",
+  "dir": "ltr"
+}

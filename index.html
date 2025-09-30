@@ -1,242 +1,476 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Half Scrollable Webpage</title>
+  <title>Tesfa Melkamu - Fullstack Developer Portfolio</title>
+  <meta name="description" content="Fullstack Developer specializing in MERN stack, React, Node.js, and modern web technologies. 3+ years experience building scalable applications.">
+  <meta name="keywords" content="Fullstack Developer, React, Node.js, JavaScript, TypeScript, MongoDB, Express.js, Portfolio">
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  
   <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-  <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-    }
-
-    .container-fluid {
-      height: 100vh; /* Full height of the viewport */
-    }
-
-    .left, .right {
-      height: 100%; /* Ensure both columns are full height */
-      padding: 20px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .right {
-      overflow-y: auto; /* Enable scrolling for this half */
-    }
-
-    .content {
-      height: 200vh; /* Example of large content to enable scrolling */
-      
-    }
-   
-  </style>
+  
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#2563eb">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Tesfa Portfolio">
 </head>
 
-<body class="gradient-bg ">
-    
-  <div class="container-fluid ">
-    <div class="row" style="height: 100vh;">
-      <!-- Left Column (Not Scrollable) -->
-      <div class="col-md-6 left" >
-        <section>
-            <div class="px-5">
-                <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-                  <div class=" col-xs-6 col-sm-4 col-md-6 col-lg-6">
-                    <img src="assets/images/photo_2024-10-10_16-19-40.jpg" class="d-block mx-lg-auto img-fluid rounded-circle border border-dark" alt="Bootstrap Themes" width="400" height="300" loading="lazy">
-                  </div>
-                  <div class="col-lg-6 col-md-6 col-sm-4 col-xs-6">
-                    <h1 class=" fw-bold  lh-1 mb-3" style="color:beige">Tesfa Melkamu</h1>
-                    <p class="lead" style="color:beige">FullStack Developer</p>
-                  </div>
-                  <nav class="nav px-5 mt-3  " >
-                        <ul class="list-group list-unstyled ">
-                            <li class="list-group-item  border-0 bg-transparent" >
-                                <a class="text-decoration-none " href="#about"><span style="color:beige">About</span></a>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="navbar">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#home">Tesfa Walle</a>
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#skills">Skills</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#certifications">Certifications</a>
                             </li>
-                            <li class="list-group-item border-0 bg-transparent" >
-                                <a class="text-decoration-none " href="#experience"><span style="color:beige">Experience</span></a>
+          <li class="nav-item">
+            <a class="nav-link" href="#experience">Experience</a>
                             </li>
-                            <li class="list-group-item border-0 bg-transparent">
-                                <a class="text-decoration-none" href="#projects"><span style="color:beige">Projects</span></a>
+          <li class="nav-item">
+            <a class="nav-link" href="#projects">Projects</a>
                             </li>
-                            <li class="list-group-item border-0 bg-transparent">
-                                <a class="text-decoration-none" href="#contact"><span style="color:beige">Contact</span></a>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
                             </li>
                         </ul>
+        
+        <!-- Theme Toggle Button -->
+        <button class="btn theme-toggle ms-3" id="themeToggle" title="Toggle Theme">
+          <i class="fas fa-sun" id="themeIcon"></i>
+        </button>
+      </div>
+    </div>
                     </nav>
-                    <ul class="list-group list-group-horizontal ">
-                        <li class="list-group-item  rounded-circle border-0 bg-transparent" style="padding-right: 0;">
-                        <a class="block hover:text-slate-200 " href="https://github.com/tess61" target="_blank" rel=""  style="color:beige">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-github " viewBox="0 0 16 16">
-                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
-                              </svg></a>
-                        </li>
-                        <li class="list-group-item rounded-circle border-0 bg-transparent " style="padding-right: 0; padding-left: 5;">
-                            <a class="block hover:text-slate-200" href="https://www.linkedin.com/in/tesfa-melkamu-walle-53b7a4260" target="_blank" rel=""   style="color:beige">
-                            <svg xmlns="http://www.w3.org/2000/svg"  width="30" height="30" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
-                            <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
-                            </svg></a>
-                        </li>
-                    
-                        <li class="list-group-item  rounded-circle border-0 bg-transparent" style="padding-right: 0; padding-left: 5;">
-                            <a class="block hover:text-slate-200" href="https://instagram.com/tesfa_61" target="_blank" rel=""  style="color:beige">    
-                            <svg xmlns="http://www.w3.org/2000/svg"  width="30" height="30" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
-                            <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
-                            </svg></a>
-                        </li>
-                        <li class="list-group-item  rounded-circle border-0 bg-transparent" style="padding-right: 0; padding-left: 5;">
-                            <a class="block hover:text-slate-200" href="" target="_blank" rel=""  style="color:beige">
-                            <svg xmlns="http://www.w3.org/2000/svg"  width="30" height="30" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
-                            <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
-                            </svg></a>
-                        </li>
-                    
-                    </ul>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero-section">
+    <div class="container">
+      <div class="row align-items-center min-vh-100">
+        <div class="col-lg-6" data-aos="fade-right">
+          <div class="hero-content">
+            <h1 class="hero-title">
+              Hi, I'm <span class="text-primary">Tesfa Walle</span>
+            </h1>
+            <h2 class="hero-subtitle">Fullstack Developer</h2>
+            <p class="hero-description">
+              Passionate about building scalable web applications with modern technologies. 
+              Specializing in MERN stack, React, Node.js, and cloud technologies.
+            </p>
+            <div class="hero-buttons">
+              <a href="#projects" class="btn btn-primary btn-lg me-3">View My Work</a>
+              <a href="#contact" class="btn btn-outline-light btn-lg">Get In Touch</a>
+            </div>
+            <div class="social-links mt-4">
+              <a href="https://github.com/tess61" target="_blank" class="social-link">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/tesfa-melkamu-walle-53b7a4260" target="_blank" class="social-link">
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a href="https://instagram.com/tesfa_61" target="_blank" class="social-link">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="mailto:tesfaforwork@gmail.com" class="social-link">
+                <i class="fas fa-envelope"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" data-aos="fade-left">
+          <div class="hero-image">
+            <img src="assets/images/photo_2024-10-10_16-19-40.jpg" alt="Tesfa Melkamu" class="img-fluid rounded-circle">
+            <div class="floating-elements">
+              <div class="floating-element element-1" title="React.js"><i class="fab fa-react"></i></div>
+              <div class="floating-element element-2" title="Angular"><i class="fab fa-angular"></i></div>
+              <div class="floating-element element-3" title="JavaScript"><i class="fab fa-js-square"></i></div>
+              <div class="floating-element element-4" title="Node.js"><i class="fab fa-node-js"></i></div>
+              <div class="floating-element element-5" title="MongoDB"><i class="fas fa-database"></i></div>
+              <div class="floating-element element-6" title="HTML5"><i class="fab fa-html5"></i></div>
+              <div class="floating-element element-7" title="CSS3"><i class="fab fa-css3-alt"></i></div>
+              <div class="floating-element element-8" title="Git"><i class="fab fa-git-alt"></i></div>
+              <div class="floating-element element-9" title="Java"><i class="fab fa-java"></i></div>
+              <div class="floating-element element-10" title="Python"><i class="fab fa-python"></i></div>
                 </div>
               </div>    
-        </section>
-        
         </div>
-        
-      <!-- Right Column (Scrollable) -->
-      <div class="col-md-6 right " style="color:beige">
-            <hr>
-            <div class="content ">
-                <section id="about" >
-                    <div class=" pt-5 mb-3">
-                        <h2 class="">About</h2>
                     </div>
-                    <div>
-                        <p class="desc">
-                          Full-Stack Software Developer with 3+ years of experience building secure web and mobile applications using the MERN stack and Flutter/Dart. Currently working at INSA (Smart Payment Division) on Ethiopia’s Derash Payment Aggregator Platform, contributing to biller/agent dashboards and modernization of legacy systems. Skilled in local payment integrations, API development, and deployments
-                        </p>
                     </div>
                 </section>
-                <section id="experience" class="space">
-                    <div class=" pt-5 mb-3">
-                        <h2 class="">Experience</h2>
-                    </div>
+  <!-- About Section -->
+  <section id="about" class="py-5">
                     <div class="container">
                           <div class="row">
-                            <div class="col-3">
-                              
-                              <p>Feb 2024-Aug 2024</p>
-                            </div>
-                            <div class="col-9">
-                              
-                              <p class="fw-bolder fs-3">Junior Tester(QA) Binary Cosmos</p>
-                              <p>Participated in Agile ceremonies (sprint planning, retrospectives, stand-ups).</p>
-                              <p>Design and implement regression testing strategies to verify that existing functionalities remain unaffected by new changes.</p>
-                              <p>Develop comprehensive test plans that cover both functional and non-functional requirements of the software.</p>
-                              <p>Conduct thorough manual testing to ensure that all system components meet quality standards before release.</p>
-                              <p>Report and document software defects, ensuring timely resolution and tracking of bugs.</p>
-                                <p class="">
-                                  <button class="btn">Selenium</button>
-                                  <button class="btn">Apache JMeter</button>
-                                  <button class="btn"> Python</button>
-                                  <button class="btn">Java</button>
+        <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
+          <h2 class="section-title">About Me</h2>
+          <p class="lead">
+            Full-Stack Software Developer with 3+ years of experience building secure web and mobile applications 
+            using the MERN stack and Flutter/Dart. Currently working at INSA (Smart Payment Division) on Ethiopia's 
+            Derash Payment Aggregator Platform, contributing to biller/agent dashboards and modernization of legacy systems.
+          </p>
+          <p class="about-passion">
+            I'm passionate about creating efficient, scalable solutions that solve real-world problems. 
+            My experience spans from frontend development with React and Angular to backend services with Node.js, 
+            and I'm always eager to learn new technologies and frameworks.
                                 </p>
                             </div>
                           </div>
                       </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-5 bg-light">
                       <div class="container">
                         <div class="row">
-                          <div class="col-3">
-                            
-                            <p>Sep 2024-Currently</p>
+        <div class="col-12 text-center mb-5" data-aos="fade-up">
+          <h2 class="section-title">Technical Skills</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="skill-category">
+            <h4 class="skill-title">Frontend Development</h4>
+            <div class="skill-tags">
+              <span class="skill-tag">React.js</span>
+              <span class="skill-tag">Angular</span>
+              <span class="skill-tag">TypeScript</span>
+              <span class="skill-tag">JavaScript (ES6+)</span>
+              <span class="skill-tag">HTML5/CSS3</span>
+              <span class="skill-tag">Bootstrap</span>
+              <span class="skill-tag">jQuery</span>
+              <span class="skill-tag">Responsive Design</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="skill-category">
+            <h4 class="skill-title">Backend Development</h4>
+            <div class="skill-tags">
+              <span class="skill-tag">Node.js</span>
+              <span class="skill-tag">Express.js</span>
+              <span class="skill-tag">MongoDB</span>
+              <span class="skill-tag">PostgreSQL</span>
+              <span class="skill-tag">Java</span>
+              <span class="skill-tag">RESTful APIs</span>
+              <span class="skill-tag">GraphQL</span>
+              <span class="skill-tag">Microservices</span>
+              <span class="skill-tag">Authentication</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="skill-category">
+            <h4 class="skill-title">AI & Data Engineering</h4>
+            <div class="skill-tags">
+              <span class="skill-tag">Machine Learning</span>
+              <span class="skill-tag">Data Engineering</span>
+              <span class="skill-tag">Financial Analysis</span>
+              <span class="skill-tag">Fintech Solutions</span>
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">Git/GitHub</span>
+              <span class="skill-tag">Docker</span>
+              <span class="skill-tag">AWS</span>
+            </div>
                           </div>
-                          <div class="col-9">
-                            
-                            <p class="fw-bolder fs-3">FullStack Developer  INSA</p>
-                            <p class="desc">Contributing to the development and testing of the <span class="text-decoration-underline fst-italic">Derash National Bill Aggregation Platform</span>, which consolidates multiple utility and service payments into a single, streamlined interface.</p>
-                            <p class="desc">Ensuring the platform's performance, reliability, and security meet national standards.</p>
-                            <p class="desc">Built and maintained Derash's report dashboards using MERN stack.</p>
-                            <p class="desc">Collaborated on modernizing a legacy payment project, migrating it to scalable and secure architecture.</p>
-                            <p class="desc">Supporting the implementation of user-friendly features and functionalities to enhance the platform's overall usability.</p>
-                              <p>Collaborating with cross-functional teams to ensure smooth integration of various payment providers and services.</p>
-                              <p class="">
-                                <button class="btn">React</button>
-                                <button class="btn">Angular</button>
-                                <button class="btn">Jquery</button>
-                                <button class="btn">Node</button>
-                              </p>
                           </div>
                         </div>
                     </div>
                 </section>
-                <section id="projects" class="">
-                    <div class=" pt-5 mb-3">
-                        <h2 class="">Projects</h2>
-                    </div>
-                    <div class="row">
-                      <div class="col-4">
-                        <a href="https://capstone-project-4-ioot.onrender.com/"><h3 style="color: burlywood;">Book Finder Web App</h3></a>
-                      </div>
-                      <div class="col-4">
-                        <a href="https://tess61.github.io/Drum-Kit-Challenge/"><h3 style="color: burlywood;">Drum-Kit-Challenge</h3></a> 
-                      </div>
-                      <div class="col-4">
-                        <a href="https://tess61.github.io/Simon-Game-Challenge/"><h3 style="color: burlywood;">Simon-Game-Challenge</h3></a>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-4">
-                        <p class="desc">This project utilizes the <strong>Express.js framework</strong> and <strong>Axios</strong> HTTP client to interact with <strong>Open Library's public API</strong>. Users can explore books by four main categories:
 
-                          Religious
-                          Psychology
-                          Fiction
-                          Non-Fiction
-                          Additionally, the application allows users to search for books by title, displaying relevant book covers and details.</p>
+  <!-- Certifications Section -->
+  <section id="certifications" class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center mb-5" data-aos="fade-up">
+          <h2 class="section-title">Certifications</h2>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8 mb-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="certification-card">
+            <div class="certification-image">
+              <img src="assets/images/MongoDB Certefication.jpg" alt="MongoDB Certification" class="img-fluid">
+            </div>
+            <div class="certification-content">
+              <h4 class="certification-title">MongoDB Certification</h4>
+              <p class="certification-provider">O'Reilly Media</p>
+              <p class="certification-description">
+                Comprehensive certification in MongoDB database management, covering data modeling, 
+                indexing, aggregation, and performance optimization techniques.
+              </p>
+              <div class="certification-date">
+                <i class="fas fa-calendar-alt"></i>
+                <span>Completed 2025</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-6 col-md-8 mb-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="certification-card">
+            <div class="certification-image">
+              <img src="assets/images/Kifiya AI MasteryTraining Program.jpg" alt="Kifiya AI Mastery Training Program" class="img-fluid">
+            </div>
+            <div class="certification-content">
+              <h4 class="certification-title">SAFEE KAIM - Kifiya AI Mastery Training Program</h4>
+              <p class="certification-provider">10 Academy in Partnership with Kifiya & Mastercard Foundation</p>
+              <p class="certification-description">
+                Certificate of Completion for successfully completing the 3-month Intensive Program, 
+                which included 12 weeks of project-based training with essential topics in Machine Learning Engineering, 
+                Data Engineering, and Financial Analysis for the fintech sector in Ethiopia.
+              </p>
+              <div class="certification-date">
+                <i class="fas fa-calendar-alt"></i>
+                <span>Completed September 2025</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center mb-5" data-aos="fade-up">
+          <h2 class="section-title">Professional Experience</h2>
+        </div>
+                    </div>
+                    <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <div class="timeline">
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <h4 class="job-title">FullStack Developer</h4>
+                  <span class="company">INSA (Smart Payment Division)</span>
+                  <span class="duration">Sep 2024 - Present</span>
+                </div>
+                <div class="job-description">
+                  <ul>
+                    <li>Contributing to the development and testing of the <strong>Derash National Bill Aggregation Platform</strong>, which consolidates multiple utility and service payments into a single, streamlined interface.</li>
+                    <li>Built and maintained Derash's report dashboards using MERN stack technologies.</li>
+                    <li>Collaborated on modernizing legacy payment projects, migrating them to scalable and secure architecture.</li>
+                    <li>Collaborating with cross-functional teams to ensure smooth integration of various payment providers and services.</li>
+                  </ul>
+                  <div class="tech-stack">
+                    <span class="tech-badge">React</span>
+                    <span class="tech-badge">Angular</span>
+                    <span class="tech-badge">Node.js</span>
+                    <span class="tech-badge">MongoDB</span>
+                    <span class="tech-badge">jQuery</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <h4 class="job-title">Junior QA Tester</h4>
+                  <span class="company">Binary Cosmos</span>
+                  <span class="duration">Feb 2024 - Aug 2024</span>
+                </div>
+                <div class="job-description">
+                  <ul>
+                    <li>Participated in Agile ceremonies (sprint planning, retrospectives, stand-ups).</li>
+                    <li>Designed and implemented regression testing strategies to verify existing functionalities remain unaffected by new changes.</li>
+                    <li>Developed comprehensive test plans covering both functional and non-functional requirements.</li>
+                    <li>Conducted thorough manual testing ensuring all system components meet quality standards before release.</li>
+                    <li>Reported and documented software defects, ensuring timely resolution and tracking of bugs.</li>
+                  </ul>
+                  <div class="tech-stack">
+                    <span class="tech-badge">Selenium</span>
+                    <span class="tech-badge">Apache JMeter</span>
+                    <span class="tech-badge">Python</span>
+                    <span class="tech-badge">Java</span>
+                    <span class="tech-badge">Agile</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
                       </div>
-                      <div class="col-4">
-                        <p class="desc">This is a simple drum kit project created as part of an online course. The app lets users play drum sounds by clicking on buttons or pressing specific keys on the keyboard.</p>
                       </div>
-                      <div class="col-4">
-                        <p class="desc">This is a simple Simon Game project, developed as part of an online course on Udemy. The game challenges players to remember and repeat an increasing sequence of colors.</p>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-5 bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center mb-5" data-aos="fade-up">
+          <h2 class="section-title">Featured Projects</h2>
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-4"><a href="https://capstone-project-4-ioot.onrender.com/"><img class="projectimg" src="assets/images/Book Shelf.png" alt=""></a></div>
-                      <div class="col-4"><a href="https://tess61.github.io/Drum-Kit-Challenge/"><img class="projectimg" src="assets/images/Drum kit.png" alt=""></a></div>
-                      <div class="col-4"><a href="https://tess61.github.io/Simon-Game-Challenge/"><img class="projectimg" src="assets/images/simon game.png" alt=""></a></div>
+        <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="project-card">
+            <div class="project-image">
+              <img src="assets/images/Book Shelf.png" alt="Book Finder Web App" class="img-fluid">
+              <div class="project-overlay">
+                <a href="https://capstone-project-4-ioot.onrender.com/" target="_blank" class="btn btn-primary">
+                  <i class="fas fa-external-link-alt"></i> View Project
+                </a>
+              </div>
+            </div>
+            <div class="project-content">
+              <h4 class="project-title">Book Finder Web App</h4>
+              <p class="project-description">
+                A comprehensive book discovery platform utilizing Express.js framework and Axios HTTP client 
+                to interact with Open Library's public API. Users can explore books by categories: Religious, 
+                Psychology, Fiction, and Non-Fiction, with search functionality by title.
+              </p>
+              <div class="project-tech">
+                <span class="tech-badge">Express.js</span>
+                <span class="tech-badge">Axios</span>
+                <span class="tech-badge">Open Library API</span>
+                <span class="tech-badge">HTML/CSS</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="project-card">
+            <div class="project-image">
+              <img src="assets/images/Drum kit.png" alt="Drum Kit Challenge" class="img-fluid">
+              <div class="project-overlay">
+                <a href="https://tess61.github.io/Drum-Kit-Challenge/" target="_blank" class="btn btn-primary">
+                  <i class="fas fa-external-link-alt"></i> View Project
+                </a>
+              </div>
+                      </div>
+            <div class="project-content">
+              <h4 class="project-title">Interactive Drum Kit</h4>
+              <p class="project-description">
+                An interactive drum kit application that allows users to play drum sounds by clicking buttons 
+                or pressing specific keys on the keyboard. Built with vanilla JavaScript and CSS animations.
+              </p>
+              <div class="project-tech">
+                <span class="tech-badge">JavaScript</span>
+                <span class="tech-badge">HTML5</span>
+                <span class="tech-badge">CSS3</span>
+                <span class="tech-badge">Web Audio API</span>
+                      </div>
+                      </div>
+                    </div>
                     </div>
                     
-                </section>
-                <section id="contact" class="">
-                    <div class=" pt-5 mb-3">
-                        <h2 class="">Contact</h2>
+        <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="project-card">
+            <div class="project-image">
+              <img src="assets/images/simon game.png" alt="Simon Game Challenge" class="img-fluid">
+              <div class="project-overlay">
+                <a href="https://tess61.github.io/Simon-Game-Challenge/" target="_blank" class="btn btn-primary">
+                  <i class="fas fa-external-link-alt"></i> View Project
+                </a>
+              </div>
                     </div>
-                    <div>
-                        <p class="mb-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
-                            </svg> +251904946262
-                        </p>
-                        <p>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-envelope-plus-fill" viewBox="0 0 16 16">
-                                <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.026A2 2 0 0 0 2 14h6.256A4.5 4.5 0 0 1 8 12.5a4.49 4.49 0 0 1 1.606-3.446l-.367-.225L8 9.586zM16 4.697v4.974A4.5 4.5 0 0 0 12.5 8a4.5 4.5 0 0 0-1.965.45l-.338-.207z"/>
-                                <path d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0m-3.5-2a.5.5 0 0 0-.5.5v1h-1a.5.5 0 0 0 0 1h1v1a.5.5 0 0 0 1 0v-1h1a.5.5 0 0 0 0-1h-1v-1a.5.5 0 0 0-.5-.5"/>
-                            </svg>
-                            hopemelkamu28@gmail.com
-                        </p>
-                        
+            <div class="project-content">
+              <h4 class="project-title">Simon Memory Game</h4>
+              <p class="project-description">
+                A classic Simon memory game that challenges players to remember and repeat an increasing 
+                sequence of colors. Features sound effects, score tracking, and responsive design.
+              </p>
+              <div class="project-tech">
+                <span class="tech-badge">JavaScript</span>
+                <span class="tech-badge">jQuery</span>
+                <span class="tech-badge">CSS Animations</span>
+                <span class="tech-badge">Game Logic</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
+          <h2 class="section-title">Get In Touch</h2>
+          <p class="lead mb-5">
+            I'm always interested in new opportunities and exciting projects. 
+            Let's connect and discuss how we can work together!
+          </p>
+          
+          <div class="contact-info">
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <a href="mailto:tesfaforwork@gmail.com">tesfaforwork@gmail.com</a>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-phone"></i>
+              <a href="tel:+251904946262">+251 904 946 262</a>
                     </div>
-                </section>
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Addis Ababa, Ethiopia</span>
+            </div>
+          </div>
+          
+          <div class="social-links mt-4">
+            <a href="https://github.com/tess61" target="_blank" class="social-link">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/tesfa-melkamu-walle-53b7a4260" target="_blank" class="social-link">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://instagram.com/tesfa_61" target="_blank" class="social-link">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
             </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Footer -->
+  <footer class="bg-dark text-light py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <p>&copy; <span id="currentYear"></span> Tesfa Walle. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="index.js"></script>
 </body>
 </html>
-
-
-
